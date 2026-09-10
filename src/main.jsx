@@ -5,6 +5,6 @@ import App from './App.jsx'
 
 createRoot(document.querySelector("#root")).render(
   <StrictMode>
-    <App url="/helpdesk.json"/>
+    <App url="/dataset.json"/>
   </StrictMode>,
 )

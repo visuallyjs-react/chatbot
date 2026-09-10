@@ -1,214 +1,233 @@
 {
   "nodes": [
     {
-      "id": "1",
+      "id": "start",
       "type": "start",
-      "left": 0,
-      "top": -100
+      "left": 123.24698484256508,
+      "top": 72.01883585957249,
+      "label": "Start"
     },
     {
-      "id": "3",
+      "id": "welcome",
       "type": "message",
-      "left": -100,
-      "top": 150,
-      "message": "Hi! I am a chatbot. Welcome."
+      "left": 353.70548347482514,
+      "top": 72.18484702867212,
+      "label": "Welcome",
+      "message": "Hello! Welcome to our Helpdesk. How can I assist you today?"
     },
     {
-      "id": "4",
+      "id": "user_input",
       "type": "input",
-      "left": 200,
-      "top": 120,
-      "message": "Please enter your name",
-      "prompt": "your name, please!"
-    },
-    {
-      "id": "5",
-      "type": "choice",
-      "left": 200,
-      "top": 350,
-      "message": "Select logon method",
-      "choices": [
-        {
-          "id": "pin",
-          "label": "PIN"
-        },
-        {
-          "id": "password",
-          "label": "Password"
-        }
-      ]
-    },
-    {
-      "id": "2",
-      "type": "end",
-      "left": 1595,
-      "top": 164
-    },
-    {
-      "id": "6",
-      "type": "input",
-      "left": 550,
-      "top": 220,
-      "message": "Enter PIN:"
-    },
-    {
-      "id": "7",
-      "type": "input",
-      "left": 550,
-      "top": 450,
-      "message": "Enter Password:"
-    },
-    {
-      "id": "8",
-      "type": "message",
-      "left": 850,
+      "left": 350,
       "top": 280,
-      "message": "Thanks! Checking it now"
+      "label": "Describe Issue",
+      "prompt": "Please describe your issue in a few words."
     },
     {
-      "id": "9",
-      "type": "message",
-      "left": 850,
-      "top": 480,
-      "message": "Thanks! Checking it now"
-    },
-    {
-      "id": "10",
-      "type": "test",
-      "left": 869,
-      "top": -36,
-      "message": "Check PIN",
+      "id": "ai_triage",
+      "type": "ai_agent",
+      "left": 367.1779103510688,
+      "top": 502.722387938836,
+      "label": "AI Triage",
+      "model": "gpt-4o-mini",
+      "systemPrompt": "You are a triage assistant. Categorize the user's issue into: Billing, Technical, Sales, or Other.",
+      "userPrompt": "User issue: {{last_user_input}}",
       "choices": [
         {
-          "id": "ok",
-          "label": "PIN OK"
+          "id": "billing",
+          "label": "Billing"
         },
         {
-          "id": "fail",
-          "label": "Wrong PIN"
+          "id": "tech",
+          "label": "Technical"
+        },
+        {
+          "id": "sales",
+          "label": "Sales"
+        },
+        {
+          "id": "other",
+          "label": "Other"
         }
       ]
     },
     {
-      "id": "11",
+      "id": "billing_flow",
       "type": "message",
-      "left": 1236,
-      "top": -10,
-      "message": "Your PIN was accepted!"
+      "left": 817.0350792888033,
+      "top": 288.71536120454914,
+      "label": "Billing Help",
+      "message": "I'm connecting you to our billing department. Please wait a moment."
     },
     {
-      "left": 472,
-      "top": 10,
-      "type": "message",
-      "message": "The PIN was incorrect",
-      "id": "a132061f-d4ea-4c9d-afa7-895a1405a74d"
+      "id": "tech_input",
+      "type": "input",
+      "left": 811.3807464360083,
+      "top": 455.4621175716803,
+      "label": "Device Info",
+      "prompt": "Which device are you having trouble with?"
     },
     {
-      "left": 890,
-      "top": 701,
-      "type": "test",
-      "message": "Check password",
+      "id": "ai_diagnostic",
+      "type": "ai_agent",
+      "left": 1156.929093918522,
+      "top": 449.83181162902457,
+      "label": "AI Diagnostic",
+      "model": "gpt-4o-mini",
+      "systemPrompt": "Help the user troubleshoot their device. Determine if it is a simple restart fix or needs a technician.",
       "choices": [
         {
-          "id": "1",
-          "label": "Password OK"
+          "id": "simple",
+          "label": "Simple Fix"
         },
         {
-          "id": "2",
-          "label": "Wrong Password"
+          "id": "complex",
+          "label": "Needs Technician"
         }
-      ],
-      "id": "a67a8ae3-8171-49ad-af04-a376bf672804"
+      ]
     },
     {
-      "left": 1280,
-      "top": 343,
+      "id": "simple_fix",
       "type": "message",
-      "message": "That is the right password.",
-      "id": "dd51b83c-69fa-4cda-9e51-b2491a79461e"
+      "left": 1459.912435260825,
+      "top": 368.21506754231416,
+      "label": "Restart Guide",
+      "message": "Have you tried turning it off and on again? That usually works!"
     },
     {
-      "left": 491.0060352783804,
-      "top": 724.3732321811578,
+      "id": "complex_fix",
       "type": "message",
-      "message": "Your password was incorrect.",
-      "id": "014fd27c-e83f-449e-a731-58519ba4c882"
+      "left": 1461.645042447541,
+      "top": 546.0782743339207,
+      "label": "Transfer to Human",
+      "message": "This looks complicated. Let me get a technician to help you."
+    },
+    {
+      "id": "sales_flow",
+      "type": "message",
+      "left": 814.9635495755247,
+      "top": 649.9961199209781,
+      "label": "Sales Agent",
+      "message": "A sales representative will be with you shortly to discuss our plans."
+    },
+    {
+      "id": "other_flow",
+      "type": "message",
+      "left": 818.5725949062951,
+      "top": 818.5982129318169,
+      "label": "General Support",
+      "message": "I'll transfer you to our general support queue."
+    },
+    {
+      "left": 1223.5650061402105,
+      "top": 286.7670991510492,
+      "type": "end",
+      "id": "3899e7f1-3eae-4ba7-881d-9c66a61a4cdf"
+    },
+    {
+      "left": 1225.1300122804207,
+      "top": 740.8527417374125,
+      "type": "end",
+      "id": "cf5f7fdd-6464-42b5-b032-8e81d95a189e"
+    },
+    {
+      "left": 1895.3937209674837,
+      "top": 428.20887393881145,
+      "type": "end",
+      "id": "8643f0dd-99ce-4b51-ad03-27c59b3a34a7"
     }
   ],
   "edges": [
     {
-      "source": "1",
-      "target": "3"
+      "source": "start",
+      "target": "welcome",
+      "data": {}
     },
     {
-      "source": "3",
-      "target": "4"
+      "source": "welcome",
+      "target": "user_input",
+      "data": {}
     },
     {
-      "source": "4",
-      "target": "5"
+      "source": "user_input",
+      "target": "ai_triage",
+      "data": {}
     },
     {
-      "source": "5.pin",
-      "target": "6"
+      "source": "ai_triage.billing",
+      "target": "billing_flow",
+      "data": {}
     },
     {
-      "source": "5.password",
-      "target": "7"
+      "source": "ai_triage.tech",
+      "target": "tech_input",
+      "data": {}
     },
     {
-      "source": "6",
-      "target": "8"
+      "source": "ai_triage.sales",
+      "target": "sales_flow",
+      "data": {}
     },
     {
-      "source": "7",
-      "target": "9"
+      "source": "ai_triage.other",
+      "target": "other_flow",
+      "data": {}
     },
     {
-      "source": "8",
-      "target": "10"
-    },
-    {
-      "source": "9",
-      "target": "a67a8ae3-8171-49ad-af04-a376bf672804"
-    },
-    {
-      "source": "10.ok",
-      "target": "11"
-    },
-    {
-      "source": "10.fail",
-      "target": "a132061f-d4ea-4c9d-afa7-895a1405a74d",
+      "source": "billing_flow",
+      "target": "3899e7f1-3eae-4ba7-881d-9c66a61a4cdf",
       "data": {
-        "label": "get pin again"
+        "id": "13278f6b-ef41-4706-8269-fc1ec73997dd",
+        "type": "default"
       }
     },
     {
-      "source": "11",
-      "target": "2",
+      "source": "tech_input",
+      "target": "ai_diagnostic",
+      "data": {}
+    },
+    {
+      "source": "ai_diagnostic.simple",
+      "target": "simple_fix",
+      "data": {}
+    },
+    {
+      "source": "ai_diagnostic.complex",
+      "target": "complex_fix",
+      "data": {}
+    },
+    {
+      "source": "simple_fix",
+      "target": "8643f0dd-99ce-4b51-ad03-27c59b3a34a7",
       "data": {
-        "label": "success"
+        "id": "36af1dbf-ed9d-4492-bedd-3d2e283e0da3",
+        "type": "default"
       }
     },
     {
-      "source": "a132061f-d4ea-4c9d-afa7-895a1405a74d",
-      "target": "6"
+      "source": "complex_fix",
+      "target": "8643f0dd-99ce-4b51-ad03-27c59b3a34a7",
+      "data": {
+        "id": "84d55d5a-9e0d-4981-bf4e-036cee8a48d9",
+        "type": "default"
+      }
     },
     {
-      "source": "a67a8ae3-8171-49ad-af04-a376bf672804.1",
-      "target": "dd51b83c-69fa-4cda-9e51-b2491a79461e"
+      "source": "sales_flow",
+      "target": "cf5f7fdd-6464-42b5-b032-8e81d95a189e",
+      "data": {
+        "id": "38365014-4b91-4b5d-afeb-007056a608af",
+        "type": "default"
+      }
     },
     {
-      "source": "a67a8ae3-8171-49ad-af04-a376bf672804.2",
-      "target": "014fd27c-e83f-449e-a731-58519ba4c882"
-    },
-    {
-      "source": "dd51b83c-69fa-4cda-9e51-b2491a79461e",
-      "target": "2"
-    },
-    {
-      "source": "014fd27c-e83f-449e-a731-58519ba4c882",
-      "target": "7"
+      "source": "other_flow",
+      "target": "cf5f7fdd-6464-42b5-b032-8e81d95a189e",
+      "data": {
+        "id": "784548b6-c730-411b-8fcf-55a0701a2322",
+        "type": "default"
+      }
     }
-  ]
+  ],
+  "groups": []
 }
