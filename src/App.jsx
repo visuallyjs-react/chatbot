@@ -10,15 +10,21 @@ import viewOptions from './view-options'
 import modelOptions from './model-options'
 import Palette from "./Palette.jsx";
 import Inspector from './Inspector.jsx'
+import {useEffect, useRef} from "react";
 
 
 function App({url, hidePaletteAndInspector}) {
+
+    const r = useRef(null)
+    useEffect(() => {
+        window.r = r.current
+    })
 
   return <div className="vjs-chatbot">
       <SurfaceProvider>
           <div className="vjs-chatbot-canvas">
               <SurfaceComponent renderOptions={renderOptions} modelOptions={modelOptions} url={url}
-                                viewOptions={viewOptions}/>
+                                viewOptions={viewOptions} ref={r}/>
               <ControlsComponent/>
               <MiniviewComponent typeFunction={(v) => v.type}/>
           </div>

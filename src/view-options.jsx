@@ -5,7 +5,8 @@ import MessageComponent from "./components/MessageComponent.jsx";
 import InputComponent from "./components/InputComponent.jsx";
 import ChoiceComponent from "./components/ChoiceComponent.jsx";
 import TestComponent from "./components/TestComponent.jsx";
-import {ACTION_CHOICE, ACTION_INPUT, ACTION_MESSAGE, ACTION_TEST, END, SELECTABLE, START} from "./constants.js";
+import AiAgentComponent from "./components/AiAgentComponent.jsx";
+import {ACTION_AI, ACTION_CHOICE, ACTION_INPUT, ACTION_MESSAGE, ACTION_TEST, END, SELECTABLE, START} from "./constants.js";
 
 /**
  * View options map node/group types to the JSX used to render them and to various aspects of the given vertex type's
@@ -44,6 +45,10 @@ const viewOptions = {
         [ACTION_TEST]:{
             parent:SELECTABLE,
             jsx: (ctx) => <TestComponent ctx={ctx}/>
+        },
+        [ACTION_AI]:{
+            parent:SELECTABLE,
+            jsx: (ctx) => <AiAgentComponent ctx={ctx}/>
         }
     },
     edges:{

@@ -5,6 +5,7 @@
     --bg-chatbot-choice: #F59E0B;  /* Amber 500 - ORANGE */
     --bg-chatbot-input: #8B5CF6;   /* Violet 500 - PURPLE */
     --bg-chatbot-test: #EC4899;    /* Pink 500 - PINK */
+    --bg-chatbot-ai: #6B46C1;      /* Deep Purple 600 */
 
     --bg-chatbot-delete: #EF4444;  /* Red 500 */
     --bg-chatbot-choice-option: #F9FAFB; /* Gray 50 */
@@ -83,6 +84,10 @@
     background-color: var(--bg-chatbot-test);
 }
 
+[vjs-miniview-type='ai_agent'] {
+    background-color: var(--bg-chatbot-ai);
+}
+
 
 /* the palette container */
 .vjs-chatbot-palette {
@@ -133,6 +138,10 @@
 
 .vjs-chatbot-palette-item[data-vjs-type='test'] {
     border-left: 4px solid var(--bg-chatbot-test);
+}
+
+.vjs-chatbot-palette-item[data-vjs-type='ai_agent'] {
+    border-left: 4px solid var(--bg-chatbot-ai);
 }
 /* /page scope */
 
@@ -321,7 +330,7 @@ delete button, visible only when element is selected.
     content:'END';
 }
 
-.vjs-chatbot-message, .vjs-chatbot-input, .vjs-chatbot-test, .vjs-chatbot-choice {
+.vjs-chatbot-message, .vjs-chatbot-input, .vjs-chatbot-test, .vjs-chatbot-choice, .vjs-chatbot-ai {
     display: flex;
     padding: 1.25rem;
     border-radius: 12px;
@@ -330,7 +339,7 @@ delete button, visible only when element is selected.
     min-width: 200px;
 }
 
-.vjs-chatbot-test, .vjs-chatbot-choice {
+.vjs-chatbot-test, .vjs-chatbot-choice, .vjs-chatbot-ai {
     padding: 0;
 }
 
@@ -449,6 +458,34 @@ delete button, visible only when element is selected.
     background-color: var(--bg-chatbot-test-option);
 }
 
+.vjs-chatbot-ai {
+    border-top: 8px solid var(--bg-chatbot-ai);
+    flex-direction: column;
+}
+
+.vjs-chatbot-ai-header {
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.vjs-chatbot-ai-icon {
+    font-size: 1.1rem;
+}
+
+.vjs-chatbot-ai-title {
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--bg-chatbot-ai);
+    text-transform: uppercase;
+}
+
+.vjs-chatbot-ai .vjs-chatbot-choice-option {
+    background-color: white;
+}
+
 .vjs-choice-add, .vjs-test-add {
     position: absolute;
     top: -30px;
@@ -518,7 +555,7 @@ delete button, visible only when element is selected.
     text-transform: uppercase;
 }
 
-.vjs-chatbot-inspector input[type='text'] {
+.vjs-chatbot-inspector input[type='text'], .vjs-chatbot-inspector input[type='range'], .vjs-chatbot-inspector input[type='number'], .vjs-chatbot-inspector select, .vjs-chatbot-inspector textarea {
     height: 38px;
     padding: 0.5rem 0.75rem;
     margin-bottom: 1rem;
@@ -528,7 +565,7 @@ delete button, visible only when element is selected.
     transition: border-color 0.2s ease;
 }
 
-.vjs-chatbot-inspector input[type='text']:focus {
+.vjs-chatbot-inspector input[type='text']:focus, .vjs-chatbot-inspector input[type='range']:focus, .vjs-chatbot-inspector input[type='number']:focus, .vjs-chatbot-inspector select:focus, .vjs-chatbot-inspector textarea:focus {
     outline: none;
     border-color: #3B82F6;
     box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);

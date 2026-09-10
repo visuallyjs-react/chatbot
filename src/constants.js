@@ -5,6 +5,7 @@ export const ACTION_MESSAGE = "message"
 export const ACTION_INPUT = "input"
 export const ACTION_CHOICE = "choice"
 export const ACTION_TEST = "test"
+export const ACTION_AI = "ai_agent"
 
 
 export const SELECTABLE = "selectable"
@@ -21,5 +22,6 @@ export const nodeTypes = [
     {type:ACTION_MESSAGE, label:"Message"},
     {type:ACTION_INPUT, label:"Input"},
     {type:ACTION_CHOICE, label:"Choice"},
-    {type:ACTION_TEST, label:"Test"}
+    {type:ACTION_TEST, label:"Test"},
+    {type:ACTION_AI, label:"AI Prompt"}
 ]
