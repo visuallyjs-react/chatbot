@@ -22,12 +22,11 @@ function App({url, hidePaletteAndInspector}) {
 
   return <div className="vjs-chatbot">
       <SurfaceProvider>
-          <div className="vjs-chatbot-canvas">
-              <SurfaceComponent renderOptions={renderOptions} modelOptions={modelOptions} url={url}
-                                viewOptions={viewOptions} ref={r}/>
-              <ControlsComponent/>
-              <MiniviewComponent typeFunction={(v) => v.type}/>
-          </div>
+
+          <SurfaceComponent className="vjs-chatbot-canvas" renderOptions={renderOptions} modelOptions={modelOptions} url={url}
+                            viewOptions={viewOptions} ref={r}/>
+          <ControlsComponent/>
+          <MiniviewComponent typeFunction={(v) => v.type}/>
           {hidePaletteAndInspector !== true && <div className="vjs-chatbot-rhs">
               <Palette/>
               <Inspector/>

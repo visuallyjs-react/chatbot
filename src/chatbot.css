@@ -20,10 +20,13 @@
 
 .vjs-chatbot {
     display:flex;
-    height:80vh;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: var(--text-main);
     background-color: #F3F4F6;
+}
+
+.vjs-surface {
+    height:80vh;
 }
 
 .vjs-chatbot-canvas {
@@ -41,6 +44,7 @@
     flex-direction: column;
     gap: 1.5rem;
     overflow-y: auto;
+    flex-grow: 1;
 }
 
 .vjs-controls {
